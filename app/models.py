@@ -4,6 +4,11 @@ import uuid
 from sqlmodel import Field, Relationship, SQLModel
 
 
+class CPUUsageCreate(SQLModel):
+    timestamp: datetime
+    cpu_percent: float
+
+
 class User(SQLModel, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     first_name: str | None = Field(default=None, max_length=255)
@@ -21,6 +26,7 @@ class TestRun(SQLModel, table=True):
     user_id: uuid.UUID = Field(foreign_key="user.id")
     user: User = Relationship(back_populates="test_runs")
     cpu_usages: List["CPUUsage"] = Relationship(back_populates="test_run")
+
 
 class CPUUsage(SQLModel, table=True):
     __tablename__: str = "cpu_usage"
