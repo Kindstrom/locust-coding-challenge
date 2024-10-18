@@ -1,0 +1,18 @@
+[project]
+name = "locust-coding-challenge"
+version = "0.1.0"
+description = "Code for the Locust Coding Challenge"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bcrypt>=4.2.0",
+    "fastapi[standard]>=0.115.2",
+    "passlib>=1.7.4",
+    "psutil>=6.0.0",
+    "psycopg[binary,pool]>=3.2.3",
+    "pydantic-settings>=2.5.2",
+    "pytest>=8.3.3",
+    "ruff>=0.6.9",
+    "sqlalchemy>=2.0.36",
+    "sqlmodel>=0.0.22",
+]
