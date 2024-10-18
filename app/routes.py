@@ -21,7 +21,7 @@ def create_user(user: User, session: SessionDep) -> User:
     return user
 
 
-# Route that first logs in the user using the authentication dependency, and then return its first and last name
+# Route that first logs in the user using the HTTP Basic authentication dependency, and then return its first and last name
 @router.get("/login")
 def login(user: User = Depends(get_current_user)):
     return {"first_name": user.first_name, "last_name": user.last_name}

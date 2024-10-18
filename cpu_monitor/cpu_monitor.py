@@ -99,12 +99,7 @@ class CPUMonitor:
         print("--- End of Report ---")
 
 
-def signal_handler(signum, frame):
-    monitor.stop()
-    sys.exit(0)
-
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Monitor CPU usage and send data to API"
     )
@@ -135,7 +130,15 @@ if __name__ == "__main__":
         threshold=args.threshold,
     )
 
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+    def _signal_handler(signum, frame):
+        monitor.stop()
+        sys.exit(0)
+
+    signal.signal(signal.SIGINT, _signal_handler)
+    signal.signal(signal.SIGTERM, _signal_handler)
 
     monitor.run()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+version = "0.1"
+name = "cpu_monitor"
+dependencies = [
+    "requests",
+    'psutil',
+]
+
+[project.scripts]
+cpu_monitor = "cpu_monitor:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cpu_monitor*"]
+namespaces = false
