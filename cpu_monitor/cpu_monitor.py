@@ -103,9 +103,11 @@ def main():
     parser = argparse.ArgumentParser(
         description="Monitor CPU usage and send data to API"
     )
-    # parser.add_argument("--api_url", required=True, help="Base URL of the API")
     parser.add_argument("--username", required=True, help="API username")
     parser.add_argument("--password", required=True, help="API password")
+    parser.add_argument(
+        "--api_url", default="http://localhost:8000/", help="Base URL of the API"
+    )
     parser.add_argument(
         "--measure_interval",
         type=int,
@@ -122,7 +124,7 @@ def main():
     args = parser.parse_args()
 
     monitor = CPUMonitor(
-        api_url="http://localhost:8000/",
+        api_url=args.api_url,
         username=args.username,
         password=args.password,
         measure_interval=args.measure_interval,
