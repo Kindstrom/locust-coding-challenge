@@ -6,6 +6,7 @@ To start there of course improvements that could be made but time is limited. So
 - Typing. Adding Mypy as a tool and typing as much as possible of the code.
 - Add doc strings and more comments.
 - Working docker compose spec
+- Add proper logging instead of relying on prints
 
 ## Prerequisites
 - This repo makes use of `uv` package/project manager,  see installation notes - https://docs.astral.sh/uv/getting-started/installation/
